@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+
+    <label for="celsius">Celsius:</label>
+    <input type="number" id="celsiusInput" placeholder="Enter Celsius" oninput="convertToCelsius()">
+
+    <label for="fahrenheit">Fahrenheit:</label>
+    <input type="number" id="fahrenheitInput" placeholder="Enter Fahrenheit" oninput="convertToFahrenheit()">
+    
+</body>
+
+<script>
+    function convertToCelsius() {
+        // Get the value from the Celsius input field
+        var celsius = parseFloat(document.getElementById("celsiusInput").value);
+
+        // Perform the conversion to Fahrenheit
+        var fahrenheit = (celsius * 9/5) + 32;
+
+        // Update the Fahrenheit input field with the converted value
+        document.getElementById("fahrenheitInput").value = fahrenheit.toFixed(2);
+    }
+
+    function convertToFahrenheit() {
+        // Get the value from the Fahrenheit input field
+        var fahrenheit = parseFloat(document.getElementById("fahrenheitInput").value);
+
+        // Perform the conversion to Celsius
+        var celsius = (fahrenheit - 32) * 5/9;
+
+        // Update the Celsius input field with the converted value
+        document.getElementById("celsiusInput").value = celsius.toFixed(2);
+    }
+</script>
+</html>
+
+
