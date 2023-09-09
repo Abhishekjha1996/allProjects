@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .crypto-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Crypto Purchase Interface</h1>
+        <div class="crypto-container">
+            <div class="crypto-card" id="bitcoin-card">
+                <h2>Bitcoin</h2>
+                <p>Price: $40,000</p>
+                <label for="bitcoin-quantity">Quantity:</label>
+                <input type="number" id="bitcoin-quantity" min="0">
+                <button onclick="addToCart('Bitcoin')">Buy</button>
+            </div>
+            <div class="crypto-card" id="ethereum-card">
+                <h2>Ethereum</h2>
+                <p>Price: $2,800</p>
+                <label for="ethereum-quantity">Quantity:</label>
+                <input type="number" id="ethereum-quantity" min="0">
+                <button onclick="addToCart('Ethereum')">Buy</button>
+            </div>
+            <div class="crypto-card" id="litecoin-card">
+                <h2>Litecoin</h2>
+                <p>Price: $150</p>
+                <label for="litecoin-quantity">Quantity:</label>
+                <input type="number" id="litecoin-quantity" min="0">
+                <button onclick="addToCart('Litecoin')">Buy</button>
+            </div>
+        </div>
+        <div id="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items">
+                
+            </ul>
+            <p id="cart-total">Total: $0</p>
+        </div>
+    </div>
+</body>
+<script>
+ 
+    const cart = [];
+
+    function addToCart(cryptoName) {
+        const quantityInput = document.getElementById(`${cryptoName.toLowerCase()}-quantity`);
+        const quantity = parseInt(quantityInput.value);
+
+        if (isNaN(quantity) || quantity <= 0) {
+            alert('Please enter a valid quantity.');
+            return;
+        }
+
+        const crypto = {
+            name: cryptoName,
+            quantity: quantity,
+            price: getCryptoPrice(cryptoName),
+        };
+
+        cart.push(crypto);
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        cartItems.innerHTML = '';
+
+        if (cart.length === 0) {
+            cartItems.innerHTML = '<li>Your cart is empty!</li>';
+            cartTotal.textContent = 'Total: $0';
+        } else {
+            let total = 0;
+            cart.forEach((crypto) => {
+                const item = document.createElement('li');
+                item.textContent = `${crypto.name} x ${crypto.quantity} = $${crypto.price * crypto.quantity}`;
+                cartItems.appendChild(item);
+                total += crypto.price * crypto.quantity;
+            });
+            cartTotal.textContent = `Total: $${total}`;
+        }
+    }
+
+   
+    function getCryptoPrice(cryptoName) {
+        switch (cryptoName) {
+            case 'Bitcoin':
+                return 40000;
+            case 'Ethereum':
+                return 2800;
+            case 'Litecoin':
+                return 150;
+            default:
+                return 0;
+        }
+    }
+</script>
+</html>
