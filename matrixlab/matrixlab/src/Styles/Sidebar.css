@@ -1,0 +1,28 @@
+#Scontainer{
+    border: 1px solid black;
+    width: 288px;
+height: 982px;
+top: 1px;
+border-radius: 0px 32px 32px 0px;
+background-color: #292929;
+}
+
+
+
+
+
+#Sfotter{
+    width: 1516px;
+height: 68px;
+margin-top: 720px;
+background-color:#F30050;
+;
+
+}
+
+.Sbox{
+    border: 1px solid red;
+    width: 288px;
+height: 65px;
+
+}
