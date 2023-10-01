@@ -1,28 +1,53 @@
-#Scontainer{
-    border: 1px solid black;
-    width: 288px;
-height: 982px;
-top: 1px;
-border-radius: 0px 32px 32px 0px;
-background-color: #292929;
+#Scontainer {
+  border: 1px solid black;
+  width: 288px;
+  height: 982px;
+  top: 1px;
+  border-radius: 0px 32px 32px 0px;
+  background-color: #292929;
 }
 
-
-
-
-
-#Sfotter{
-    width: 1516px;
-height: 68px;
-margin-top: 720px;
-background-color:#F30050;
-;
-
+.Sbox {
+  border: 1px solid red;
+  width: 288px;
+  height: 65px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.slogo {
+  border: 1px solid red;
+  width: 25.33px;
+  height: 29.33px;
+}
+.slogopic {
+  border: 1px solid red;
+  margin-left: -50px;
+  width: 106px;
+  height: 56px;
+}
+.tokentext {
+  border: 1px solid red;
+  color: #f7f9f9;
+  width: 144px;
+  height: 28px;
 }
 
-.Sbox{
-    border: 1px solid red;
-    width: 288px;
-height: 65px;
+#hug {
+  width: Hug (112px);
+  height: Hug (24px);
+  margin-top: 620px;
+  margin-left: 34px;
+  gap: 20px;
+  display: flex;
+}
+.shug {
+  border: 1px solid red;
+}
 
+#Sfotter {
+  width: 1516px;
+  height: 68px;
+  margin-top: 90px;
+  background-color: #f30050;
 }
